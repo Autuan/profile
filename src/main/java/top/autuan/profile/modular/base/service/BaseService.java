@@ -12,4 +12,10 @@ public interface BaseService {
     PageInfo pageInfos();
 
     List<Project> listProjects();
+
+    void addPageInfo(PageInfo pageInfo);
+
+    void addProjects(List<Project> projects);
+
+    void deleteProject(String id);
 }
