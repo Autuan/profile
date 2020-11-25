@@ -14,4 +14,8 @@ public class PageInfo {
      * 备案号
      */
     private String recordNo;
+    /**
+     * title
+     */
+    private String title;
 }

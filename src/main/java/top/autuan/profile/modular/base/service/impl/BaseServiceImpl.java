@@ -13,6 +13,7 @@ import top.autuan.profile.modular.base.entity.PageInfo;
 import top.autuan.profile.modular.base.entity.Project;
 import top.autuan.profile.modular.base.service.BaseService;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -51,6 +52,7 @@ public class BaseServiceImpl implements BaseService {
         Map<Object, Object> map = redisTemplate.opsForHash().entries(KEY_LIST);
         List<Project> collect = map.values().stream()
                 .map(item ->JSONUtil.toBean(String.valueOf(item),Project.class))
+                .sorted(Comparator.comparing(Project::getSequence).reversed())
                 .collect(Collectors.toList());
         return collect;
     }
